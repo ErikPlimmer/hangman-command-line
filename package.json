@@ -1,0 +1,23 @@
+{
+  "name": "hangman-command-line",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikPlimmer/hangman-command-line.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikPlimmer/hangman-command-line/issues"
+  },
+  "homepage": "https://github.com/ErikPlimmer/hangman-command-line#readme"
+}
