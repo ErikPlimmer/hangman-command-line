@@ -1,45 +1,38 @@
-const inquirer = require("inquirer");
-const wordarr = require("./wordarr.js");
-const Letter = require("./letter.js");
+let inquirer = require("inquirer");
+let game = require("./wordarr.js");
+let Letter = require("./letter.js");
 
-// Word.prototype.printInfo = function() {
-//     console.log()
-// };
-
-// let userGuess = function() {
-    
-
-//     inquirer.prompt([
-//         {
-//             name: "guess",
-//             message: "Guess A letter ?"
-//         }
-//     ]).then(function(answer) {
-//         let newGuess = new Word(
-//             answer.guess)
-
-//             newGuess.printInfo();
-//             userGuess();
-//     });
-// }
-
-
-
-var word = wordarr.selectWord();
-var selectedWord = word.word;
-var letters = [];
-for (var i=0; i < selectedWord.length; i++) {
+let word = game.selectWord();
+let selectedWord = word.word;
+let letters = [];
+for (let i=0; i<selectedWord.length; i++) {
   letters.push(new Letter(selectedWord.charAt(i)));
 }
-var guessesLeft = 5;
-makeGuess();
+let guessesLeft = 5;
+whatDo();
 
+function whatDo(){
+  inquirer.prompt({name:"which",
+              message: "Play DragonBall Z Hangman?",
+              type: "list",
+              choices: ["Play","QUIT"]
+              })
+      .then(function(d){
+          if(d.which == "Play"){
+            makeGuess();
+          }
+          else{
+              
+          }
+      });
+
+}
 //recursive function that gets called as long as the word has not been guessed and there are guesses left
 function makeGuess() {
   displayWord();
   inquirer.prompt({name: "letter",
-                   message: "Please guess a letter:"
-                }).then(function(answer) {
+                   message: "Please enter a letter:"
+                  }).then(function(answer) {
     if (word.checkLetter(answer.letter, letters) == true) {
       console.log("Good job!");
 
@@ -66,8 +59,8 @@ function makeGuess() {
 }
 
 function displayWord() {
-  var displayedWord = "";
-  for (var i=0; i<letters.length; i++) {
+  let displayedWord = "";
+  for (let i=0; i<letters.length; i++) {
     displayedWord += letters[i].printLetter();
     displayedWord += " ";
   }

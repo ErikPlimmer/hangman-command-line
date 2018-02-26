@@ -1,13 +1,15 @@
 
-let Letter = function(letter) {
+function Letter(letter) {
     this.letter = letter;
-    this.underscore = '_';
+    this.shown = '_';
+    
     this.printLetter = function() {
-        return this.underscore;
-    } 
-    this.showLetter = function() {
-        this.underscore = letter;
+      return this.shown;
     }
-}
 
-module.exports = Letter;
+    this.changeShown = function() {
+      this.shown = letter;
+    }
+  }
+  
+  module.exports = Letter;

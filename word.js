@@ -1,12 +1,12 @@
 
-let Word = function(word) {
+ function Word (word) {
     this.word = word;
     this.checkLetter = function(letter, letters) {
       let letterFound = false;
       for (let i=0; i < this.word.length; i++) {
         if (this.word.charAt(i).toLowerCase() == letter.toLowerCase()) {
           letterFound = true;
-          letters[i].showLetter();
+          letters[i].changeShown();
         }
       }
       return letterFound;
